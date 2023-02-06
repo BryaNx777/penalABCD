@@ -1076,42 +1076,76 @@ function finalizar(){
         meses = 60
     }
 
-    // navigator.clipboard.writeText(multa)
-    //       .then(() => {
-    //       alert("Texto copiado para a área de tranferência")
-    // })
-
     const div = document.createElement('div');
     div.classList.add('finalizado');
 
-    const button = document.createElement('button');
-    button.classList.add('voltarFinalizado');
+    const buttonVoltar = document.createElement('button');
+    buttonVoltar.classList.add('voltarFinalizado');
+
+    const buttonCopy = document.createElement('button');
+    buttonCopy.classList.add('copiarFinalizado')
 
     const label1 = document.createElement('label');
-    const label2 = document.createElement('label');
-    const label3 = document.createElement('label');
-    const label4 = document.createElement('label');
-    const label5 = document.createElement('label');
-    const label6 = document.createElement('label');
-    label1.innerText = `Nome: ${name}`;
-    label2.innerText = `CPF: ${cpf}`;
-    label3.innerText = `RG: ${rg.toUpperCase()}`;
-    label4.innerHTML = `Artigos: ${artigos}`;
-    label5.innerHTML = `Pena: ${meses} Meses`;
-    label6.innerHTML = `Multa: R$ ${multa}`;
-    button.innerHTML = `Voltar`;
+
+    //ATUALIZAÇÃO 0.1 FOI RETIRADO ESSES ITENS
+        // const label2 = document.createElement('label');
+        // const label3 = document.createElement('label');
+        // const label4 = document.createElement('label');
+        // const label5 = document.createElement('label');
+        // const label6 = document.createElement('label');
+
+    //ATUALIZAÇÃO 0.1 FOI ALTERADO A FORMA DE ESCRITA DESSE ITEM
+    label1.innerHTML = `
+        Nome: ${name}
+        <br>CPF: ${cpf}
+        <br>RG: ${rg.toUpperCase()}
+        <br>Artigos: ${artigos}
+        <br>Pena: ${meses} Meses
+        <br>Multa: R$ ${multa}
+    `;
+
+    //ATUALIZAÇÃO 0.1 FOI RETIRADO ESSES ITENS
+    // label2.innerText = `CPF: ${cpf}`;
+    // label3.innerText = `RG: ${rg.toUpperCase()}`;
+    // label4.innerHTML = `Artigos: ${artigos}`;
+    // label5.innerHTML = `Pena: ${meses} Meses`;
+    // label6.innerHTML = `Multa: R$ ${multa}`;
+    
+    buttonVoltar.innerHTML = `Voltar`;
+    buttonCopy.innerHTML = `Copiar`;
+    
+    //ATUALIZAÇÃO 0.1 FOI ADICIONADO ESSA VARIÁVEL DE FICHA
+    const ficha =
+        `Nome: ${name} \nCPF: ${cpf} \nRG: ${rg.toUpperCase()} \nArtigos: ${artigos} \nPena: ${meses} Meses \nMulta: R$ ${multa}`;
+
+    //ATUALIZAÇÃO 0.1 FOI ADICIONADO ESSE BOTÃO DE COPIAR A FICHA
+    function copy(){
+        navigator.clipboard.writeText(ficha)
+        .then(() => {
+                alert(`Ficha copiada para a área de transferência`)
+            })
+    }
+    
      
     document.body.appendChild(div);
 
     div.appendChild(label1);
-    div.appendChild(label2);
-    div.appendChild(label3);
-    div.appendChild(label4);
-    div.appendChild(label5);
-    div.appendChild(label6);
-    div.appendChild(button);
 
-    $(button).on('click', () => {
+    //ATUALIZAÇÃO 0.1 FOI RETIRADO ESSES ITENS
+        // div.appendChild(label2);
+        // div.appendChild(label3);
+        // div.appendChild(label4);
+        // div.appendChild(label5);
+        // div.appendChild(label6);
+        
+    div.appendChild(buttonVoltar);
+    div.appendChild(buttonCopy);
+
+    $(buttonVoltar).on('click', () => {
         window.location.href = "./index.html";
+    });
+
+    $(buttonCopy).on('click', () => {
+        copy()
     });
 }

@@ -70,7 +70,7 @@ button{
     background: #2968c8;
 }
 
-.end:hover{
+.end:hover, .copiarFinalizado:hover{
     /* width: 145px;
     height: 35px; */
     background: #00a650;
@@ -155,11 +155,16 @@ button{
     flex-direction: column;
 }
 
-.voltarFinalizado{
+.voltarFinalizado, .copiarFinalizado{
     position: absolute;
     top: 20%;
     left: 20%;
     transform: translate(-50%, -50%);
+}
+
+.copiarFinalizado{
+    top: 60%;
+    left: 50%;
 }
 
 button{
