@@ -8,7 +8,7 @@
 }
 
 body, html{
-    background: url('../src/background.png');
+    background: url('../src/background3.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -107,6 +107,14 @@ button{
     height: 500px;
 }
 
+.discordIcon{
+    position: absolute;
+    left: 87%;
+    bottom: 5%;
+    width: 30px;
+    height: 25px;
+}
+
 .transito, .crime, .crime01, .crime02, .crime03, .crimeArmamento{
     background: rgba(80, 162, 255, 1);
     padding: 12px;
@@ -121,6 +129,7 @@ button{
     font-size: 13px;
     cursor: pointer;
     transition: all 0.5s;
+    border-radius: 10px;
 }
 
 .crime{
